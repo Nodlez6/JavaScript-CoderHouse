@@ -14,3 +14,7 @@ else{
     alert('No cumples con los puntajes mínimos')
 }
 
+const a = 1 == '1'
+
+console.log(a)
+
