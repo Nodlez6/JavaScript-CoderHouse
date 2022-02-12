@@ -12,70 +12,102 @@
 
     <div class="container">
 
-       <div class="fondo-calculadora">
-        <div class="grid-calculadora">
-            <div class="item-1">
-                <input id="input-calculadora" disabled type="text" class="form-control" aria-describedby="addon-wrapping">
-            </div>
-            <div class="item-2 padding">
-                <input value="C" onclick="Myfunction('C')" type="submit" class="btn btn-primary" />
-            </div>
-            <div class="item-3 padding">
-                <input value="/" onclick="operacionCalculadora('/')" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-4 padding">
-                <input value="X" type="button" onclick="operacionCalculadora('X')" class="btn btn-primary">
-            </div>
-            <div class="item-5 padding">
-                <input value="Borrar" onclick="numeroCalculadora('Borrar')" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-6 padding">
-                <input value="7" onclick="numeroCalculadora(7)" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-7 padding">
-                <input value="8" onclick="numeroCalculadora(8)" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-8 padding">
-                <input value="9" onclick="numeroCalculadora(9)" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-9 padding">
-                <input value="-" onclick="operacionCalculadora('-')" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-10 padding">
-                <input value="4" onclick="numeroCalculadora(4)" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-11 padding">
-                <input value="5" onclick="numeroCalculadora(5)" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-12 padding">
-                <input value="6" onclick="numeroCalculadora(6)" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-13 padding">
-                <input value="+" onclick="operacionCalculadora('+')" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-14 padding">
-                <input value="1" onclick="numeroCalculadora(1)" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-15 padding">
-                <input value="2" onclick="numeroCalculadora(2)" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-16 padding">
-                <input value="3" onclick="numeroCalculadora(3)" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-17 padding">
-                <input value="=" onclick="numeroCalculadora('')" type="button" class="btn btn-primary">
-            </div>
-            <div class="item-18 padding">
-                <input value="0" onclick="numeroCalculadora(0)" type="button" class="btn btn-primary">
-            </div>
-        </div>
+        <div class="contenedor__grid">
 
-       </div>
+            <div class="contenedor__grid_uno">
+                <div id="usuario__contenedor">
+                    <img src="./assets/perfil.png" alt="imagen_usuario"/>
+                    <div id="usuario__contenedor__data">
+                    </div>
+                </div>
+
+                <div class="fondo">
+
+                    <div class="grid-calculadora" >
+                        <div class="item-1">
+                            <input id="input-calculadora" disabled type="text" class="form-control" aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="item-2 padding">
+                            <input value="C" onclick="instruccionCalculadora('C')" type="submit" class="btn btn-primary" />
+                        </div>
+                        <div class="item-3 padding">
+                            <input value="/" onclick="operacionCalculadora('/')" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-4 padding">
+                            <input value="X" onclick="operacionCalculadora('X')" class="btn btn-primary">
+                        </div>
+                        <div class="item-5 padding">
+                            <input value="Borrar" onclick="instruccionCalculadora('Borrar')" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-6 padding">
+                            <input value="7" onclick="numeroCalculadora(7)" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-7 padding">
+                            <input value="8" onclick="numeroCalculadora(8)" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-8 padding">
+                            <input value="9" onclick="numeroCalculadora(9)" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-9 padding">
+                            <input value="-" onclick="operacionCalculadora('-')" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-10 padding">
+                            <input value="4" onclick="numeroCalculadora(4)" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-11 padding">
+                            <input value="5" onclick="numeroCalculadora(5)" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-12 padding">
+                            <input value="6" onclick="numeroCalculadora(6)" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-13 padding">
+                            <input value="+" onclick="operacionCalculadora('+')" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-14 padding">
+                            <input value="1" onclick="numeroCalculadora(1)" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-15 padding">
+                            <input value="2" onclick="numeroCalculadora(2)" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-16 padding">
+                            <input value="3" onclick="numeroCalculadora(3)" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-17 padding">
+                            <input value="=" onclick="instruccionCalculadora('=')" type="button" class="btn btn-primary">
+                        </div>
+                        <div class="item-18 padding">
+                            <input value="0" onclick="numeroCalculadora(0)" type="button" class="btn btn-primary">
+                        </div>
+                    </div>
+    
+                </div>
+
+                <div id="historial__contenedor">
+                        <h3>Historial</h3>
+
+
+                    <div id="historial__card__contenedor">
+                        
+                       
+                    </div>
+                </div>
+
+            </div>
+        
+            
+
+            <div>
+                <p>Dataa</p>
+            </div>
+        </div>    
         
                   
     </div>
 
-    <script src="index.js"></script>
+  
+
+    <script src="index.js" ></script>
+    
     
 </body>
 </html>

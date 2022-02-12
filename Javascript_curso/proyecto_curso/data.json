@@ -1,0 +1,20 @@
+[ 
+    {
+        "id" : "1",
+        "nombre": "sebastian",
+        "email": "1",
+        "contrasenia": "1"
+    },
+    {
+        "id" : "2",
+        "nombre": "cote",
+        "email": "cote.palma.16@gmail.com",
+        "contrasenia": "123"
+    },
+    {
+        "id" : "3",
+        "nombre": "sury",
+        "email": "sury@gmail.com",
+        "contrasenia": "123456"
+    }
+]
