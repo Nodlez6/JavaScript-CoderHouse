@@ -18,8 +18,6 @@ class Usuario{
     }
 }
 const valorInput = document.getElementById('input-calculadora')
-const historial = document.getElementById('historial__card__contenedor')
-const usuarioReference = document.getElementById('usuario__contenedor')
 
 console.log(historial)
 const usuario = JSON.parse(localStorage.getItem('value'))
@@ -28,15 +26,8 @@ console.log(newUsuario)
 
 const upperCaseFirstLetter = (newUsuario.nombre).charAt(0).toUpperCase() + newUsuario.nombre.slice(1)
 
-const nombre = document.createElement('p')
-nombre.textContent = `Nombre: ${upperCaseFirstLetter}` 
-
-const correo = document.createElement('p')
-correo.textContent = `Correo: ${newUsuario.email}` 
-
-usuarioReference.append(nombre);
-usuarioReference.append(correo);
-
+$('#usuario__contenedor').append(`<p>Nombre: ${upperCaseFirstLetter}</p>`)
+$('#usuario__contenedor').append(`<p>Correo: ${newUsuario.email}</p>`)
 
 const resuelve = (operacionIngresada) => {
     operacionIngresada = operacionIngresada.replace('X', '*')
@@ -62,16 +53,10 @@ const instruccionCalculadora = (opcion) => {
         case '=':
             const temp = valorInput.value
             valorInput.value = resuelve(valorInput.value)
-            const newDiv = document.createElement('div');
-            newDiv.classList.add('historial__card');
-            const h4Card = document.createElement('h4');
-            h4Card.textContent = temp;
-            const pCard = document.createElement('p')
-            pCard.textContent = valorInput.value
-            
-            historial.append(newDiv)
-            newDiv.append(h4Card)
-            newDiv.append(pCard)
+            $('#historial__card__contenedor').append(`<div class="historial__card">
+                <h4>${temp}</h4>
+                <p>${valorInput.value}</p>
+            </div>`)
             break;
     }
 

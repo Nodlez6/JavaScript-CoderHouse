@@ -3,11 +3,10 @@ import data from './data.json' assert {type: "json"}
 
 const input_email = document.getElementById("email")
 const input_pass = document.getElementById("password")
-const boton_login = document.getElementById("boton_login")
 
 let dataUsuario;
 
-boton_login.addEventListener("click" , () => {
+$('#boton_login').addEventListener("click" , () => {
   
     let validUsuario = false
 
