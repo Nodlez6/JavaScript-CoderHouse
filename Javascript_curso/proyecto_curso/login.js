@@ -6,7 +6,7 @@ const input_pass = document.getElementById("password")
 
 let dataUsuario;
 
-$('#boton_login').addEventListener("click" , () => {
+$('#boton_login').on("click" , () => {
   
     let validUsuario = false
 

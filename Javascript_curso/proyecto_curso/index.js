@@ -19,7 +19,6 @@ class Usuario{
 }
 const valorInput = document.getElementById('input-calculadora')
 
-console.log(historial)
 const usuario = JSON.parse(localStorage.getItem('value'))
 const newUsuario = new Usuario(usuario.id , usuario.nombre, usuario.email , usuario.contrasenia )
 console.log(newUsuario)
@@ -42,6 +41,8 @@ const numeroCalculadora = (numero) => {
 
 }
 
+let historial = []
+
 const instruccionCalculadora = (opcion) => {
     switch(opcion){
         case 'C':
@@ -57,6 +58,9 @@ const instruccionCalculadora = (opcion) => {
                 <h4>${temp}</h4>
                 <p>${valorInput.value}</p>
             </div>`)
+            $('.historial__card').hide()
+            $('.historial__card').fadeIn(1000)
+            
             break;
     }
 
@@ -78,4 +82,41 @@ const operacionCalculadora = (opcion) => {
             break;
     }
     
+}
+
+let data = {};
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://coingecko.p.rapidapi.com/coins/markets?vs_currency=usd&page=1&per_page=30&order=market_cap_desc",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "coingecko.p.rapidapi.com",
+		"x-rapidapi-key": "5dd0733e4emsh6fdd597a6ca7a88p17c758jsnc499c45df7c3"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+    console.log(response)
+   
+	response.forEach((elem, index) => {
+        let aux = `<tr>
+                        <th scope="row">${index + 1}</th>
+                        <td><img style="margin-right: 1rem;" width="20px" src="${elem.image}" />${elem.id}</td>
+                        <td>${elem.current_price}</td>
+                        <td>${elem.high_24h}</td>
+                        <td>${elem.low_24h}</td>
+                        <td><button onClick="send(${elem.current_price})" class="btn btn-primary">
+                            <img width="33px" src="./assets/calculadora.png"/>
+                        </button></td>
+                      </tr>`
+
+        $('#data-crypto').append(aux)
+    });
+});
+
+//$('data-crypto').append(table)
+
+const send = (valor_crypto) => {
+    valorInput.value = valor_crypto
 }
