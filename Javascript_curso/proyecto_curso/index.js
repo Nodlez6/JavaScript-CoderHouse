@@ -23,7 +23,21 @@ const usuario = JSON.parse(localStorage.getItem('value'))
 const newUsuario = new Usuario(usuario.id , usuario.nombre, usuario.email , usuario.contrasenia )
 console.log(newUsuario)
 
-const upperCaseFirstLetter = (newUsuario.nombre).charAt(0).toUpperCase() + newUsuario.nombre.slice(1)
+const upperCaseFirstLetter = (newUsuario.nombre).charAt(0).toUpperCase() + newUsuario.nombre.slice(1);
+
+let historialArray = JSON.parse(localStorage.getItem('historial')) || [];
+
+historialArray.forEach(hist => {
+    $('#historial__card__contenedor').append(`<div id="${hist.id}" class="historial__card">
+                <span ><i onClick="eliminarOperacion(${hist.id})" class="fa-solid fa-x"></i></span>
+                <h4>${hist.operacion}</h4>
+                <p>${hist.resultado}</p>
+            </div>`)
+            $('.historial__card').hide()
+            $('.historial__card').fadeIn(1000)
+})
+
+
 
 $('#usuario__contenedor').append(`<p>Nombre: ${upperCaseFirstLetter}</p>`)
 $('#usuario__contenedor').append(`<p>Correo: ${newUsuario.email}</p>`)
@@ -41,7 +55,6 @@ const numeroCalculadora = (numero) => {
 
 }
 
-let historial = []
 
 const instruccionCalculadora = (opcion) => {
     switch(opcion){
@@ -54,12 +67,23 @@ const instruccionCalculadora = (opcion) => {
         case '=':
             const temp = valorInput.value
             valorInput.value = resuelve(valorInput.value)
-            $('#historial__card__contenedor').append(`<div class="historial__card">
+            const date = new Date()
+            const id = date.getMinutes() + date.getSeconds() + date.getMilliseconds();
+            console.log(id)
+            $('#historial__card__contenedor').append(`<div id="${id}" class="historial__card">
+                <span ><i onClick="eliminarOperacion(${id})" class="fa-solid fa-x"></i></span>
                 <h4>${temp}</h4>
                 <p>${valorInput.value}</p>
             </div>`)
             $('.historial__card').hide()
             $('.historial__card').fadeIn(1000)
+
+            historialArray.push({
+                id: id,
+                operacion: temp,
+                resultado: valorInput.value
+            })
+            localStorage.setItem('historial' , JSON.stringify(historialArray) )
             
             break;
     }
@@ -119,4 +143,10 @@ $.ajax(settings).done(function (response) {
 
 const send = (valor_crypto) => {
     valorInput.value = valor_crypto
+}
+
+const eliminarOperacion = (id) => {
+    historialArray = historialArray.filter(hist => hist.id !== id) 
+    $(`#${id}`).remove();
+    localStorage.setItem('historial' , JSON.stringify(historialArray) )
 }

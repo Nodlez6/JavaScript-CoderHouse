@@ -186,3 +186,21 @@ input{
     text-align: center;
     font-size: 1.3rem;
 }
+
+.historial__card span{
+
+    color: red;
+    display: flex;
+    justify-content: end;
+    
+    
+}
+
+.historial__card span i{
+   
+    padding: 0.4rem;
+    border-radius: 50%;
+    background-color: #E1E099;
+    cursor: pointer;
+    
+}
