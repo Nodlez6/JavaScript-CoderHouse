@@ -18,8 +18,13 @@ $('#boton_login').on("click" , () => {
         }
     })
 
-    validUsuario ? window.location.pathname = "/coderHouse/Javascript_curso/proyecto_curso/index.html"
-    : console.log("mal ahi")
+
+    if (validUsuario){
+        window.location.pathname = "/coderHouse/Javascript_curso/proyecto_curso/index.html"
+    }
+    else{
+        swal("Error", "Credenciales no válidas", "error");
+    }
 
     input_email.value = ''
     input_pass.value = ''
